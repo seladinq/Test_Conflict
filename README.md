@@ -1,79 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Styled Search Button</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kodi im</title>
+
+  <!-- 1️⃣ Shtojmë CSS të highlight.js (në <head>) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <!-- CSS jonë personale -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #20232a;
+      color: white;
+      padding: 20px;
+    }
+    .code-block {
+      margin: 20px 0;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
 </head>
 <body>
+  <!-- 2️⃣ Kodi që duam ta theksojmë -->
+  <pre><code class="language-javascript">
+function MyButton() {
+  return (
+    &lt;button&gt;I'm a button&lt;/button&gt;
+  );
+}
+  </code></pre>
 
-    <button class="search-button">
-        <span class="search-prompt">
-            <span class="search-icon">🔍</span>
-            <span>Search...</span>
-        </span>
-
-        <span class="search-shortcut">Ctrl+K</span>
-    </button>
-
+  <!-- 3️⃣ JavaScript i highlight.js (vendoset përpara </body>) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    hljs.highlightAll(); // aktivizon highlight për çdo <pre><code>
+  </script>
 </body>
 </html>
-
-/*css*/
-/* Stilizimi bazik i faqes për shembull */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f2f5;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-/* --- KY ËSHTË KODI KRYESOR PËR BUTONIN --- */
-
-.search-button {
-    /* Hapi 1: E kthejmë butonin në një kontejner Flexbox. Kjo është pjesa kyçe! */
-    display: flex;
-    
-    /* Hapi 2: I shtyjmë dy elementët fëmijë (span-et) në skajet e kundërta */
-    justify-content: space-between;
-
-    /* Hapi 3: I rreshtojmë vertikalisht në qendër */
-    align-items: center;
-
-    /* Pjesa tjetër është stilim për pamjen */
-    width: 240px;
-    padding: 8px 12px;
-    border: 1px solid #d1d5db; /* Ngjyrë gri e lehtë */
-    border-radius: 8px;
-    background-color: #f9fafb;
-    color: #6b7280; /* Ngjyrë gri për tekstin */
-    font-size: 14px;
-    cursor: pointer;
-    transition: border-color 0.2s;
-}
-
-.search-button:hover {
-    border-color: #9ca3af; /* Theksohet pak kur kalon mausi sipër */
-}
-
-/* Stilizimi për pjesën e majtë (ikonën dhe tekstin) */
-.search-prompt {
-    display: flex;
-    align-items: center;
-}
-
-.search-icon {
-    margin-right: 8px; /* Krijon hapësirë mes lupës dhe tekstit "Search..." */
-}
-
-/* Stilizimi për shkurtoren (Ctrl+K) */
-.search-shortcut {
-    background-color: #f3f4f6;
-    border: 1px solid #d1d5db;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
-    color: #374151;
-}
